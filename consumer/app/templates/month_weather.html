@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода за последний месяц</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Погода за последний месяц</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th class="table-first-column">Date</th>
+                    <th>Макс. температура (°C)</th>
+                    <th>Мин. температура (°C)</th>
+                    <th>Макс. ощутимая температура (°C)</th>
+                    <th>Мин. ощутимая температура (°C)</th>
+                    <th>Осадки (мм)</th>
+                    <th>Макс. скорость ветра (км/ч)</th>
+                    <th>Макс. порывы ветра (км/ч)</th>
+                    <th>Направление ветра (°)</th>
+                    <th>Восход</th>
+                    <th>Закат</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in range(length) %}
+                <tr>
+                    <td>{{ weather_data[row][0] }}</td>
+                    <td>{{ weather_data[row][1] }}</td>
+                    <td>{{ weather_data[row][2] }}</td>
+                    <td>{{ weather_data[row][3] }}</td>
+                    <td>{{ weather_data[row][4] }}</td>
+                    <td>{{ weather_data[row][5] }}</td>
+                    <td>{{ weather_data[row][6] }}</td>
+                    <td>{{ weather_data[row][7] }}</td>
+                    <td>{{ wind_direction[row] }}</td>
+                    <td>{{ weather_data[row][9] }}</td>
+                    <td>{{ weather_data[row][10] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/">На главную</a>
+        <footer>
+            <p>На этой странице представлена подробная таблица с погодными данными за последний месяц. Вы можете увидеть максимальные и минимальные температуры, осадки, ветер и другие параметры.</p>
+        </footer>
+    </div>
+</body>
+</html>

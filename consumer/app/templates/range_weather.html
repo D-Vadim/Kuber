@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода за промежуток дат</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Погода за промежуток дат</h1>
+        <form method="POST">
+            <label for="start_date">Начальная дата:</label>
+            <input type="date" id="start_date" name="start_date" required>
+            <label for="end_date">Конечная дата:</label>
+            <input type="date" id="end_date" name="end_date" required>
+            <button type="submit">Показать погоду</button>
+        </form>
+
+        {% if weather_data %}
+        <h2>Погода с {{ start_date }} по {{ end_date }}</h2>
+        <ul>
+            {% for row in range(length) %}
+            <strong>Дата: {{ weather_data[row][0] }}</strong>
+            <li>Макс. температура: {{ weather_data[row][1] }}°C</li>
+            <li>Мин. температура: {{ weather_data[row][2] }}°C</li>
+            <li>Макс. ощущаемая температура: {{ weather_data[row][3] }}°C</li>
+            <li>Мин. ощущаемая температура: {{ weather_data[row][4] }}°C</li>
+            <li>Осадки: {{ weather_data[row][5] }} мм</li>
+            <li>Макс. скорость ветра: {{ weather_data[row][6] }} км/ч</li>
+            <li>Макс. порывы ветра: {{ weather_data[row][7] }} км/ч</li>
+            <li>Направление ветра: {{ wind_direction[row] }}</li>
+            <li>Восход солнца: {{ weather_data[row][9] }}</li>
+            <li>Закат солнца: {{ weather_data[row][10] }}</li>
+            <hr>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <a href="/">На главную</a>
+        <footer>
+            <p>На этой странице вы можете получить подробную информацию о погоде за любой выбранный промежуток дат. Просто выберите начальную и конечную дату, чтобы увидеть все детали.</p>
+        </footer>
+    </div>
+</body>
+</html>

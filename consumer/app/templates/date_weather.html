@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода по дате</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Погода по дате</h1>
+        <form method="POST">
+            <label for="date">Выберите дату:</label>
+            <input type="date" id="date" name="date" required>
+            <button type="submit">Показать погоду</button>
+        </form>
+
+        {% if weather_data %}
+        <h2>Погода на {{ date }}</h2>
+        <ul>
+            {% for row in weather_data %}
+            <li>Макс. температура: {{ row[1] }}°C</li>
+            <li>Мин. температура: {{ row[2] }}°C</li>
+            <li>Макс. ощущаемая температура: {{ row[3] }}°C</li>
+            <li>Мин. ощущаемая температура: {{ row[4] }}°C</li>
+            <li>Осадки: {{ row[5] }} мм</li>
+            <li>Макс. скорость ветра: {{ row[6] }} км/ч</li>
+            <li>Макс. порывы ветра: {{ row[7] }} км/ч</li>
+            <li>Направление ветра: {{ wind_direction }}</li>
+            <li>Восход солнца: {{ row[9] }}</li>
+            <li>Закат солнца: {{ row[10] }}</li>
+            <hr>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <a href="/">На главную</a>
+    </div>
+</body>
+</html>

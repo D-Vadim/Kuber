@@ -1,0 +1,51 @@
+# Игнорируем директории виртуальных окружений
+venv/
+ENV/
+env/
+.venv/
+.ENV/
+.env/
+
+# Игнорируем временные файлы и папки
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Игнорируем файлы конфигураций среды
+.env
+.venv
+.env.*
+
+# Игнорируем файлы IDE и редакторов
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Игнорируем логи
+*.log
+
+# Игнорируем тестовые выходные данные
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Игнорируем данные, созданные при работе с пакетами
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# Игнорируем данные кэширования pip
+__pypackages__/
